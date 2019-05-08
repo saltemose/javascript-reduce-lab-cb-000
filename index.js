@@ -23,5 +23,14 @@ function batCount(accumulator, currentValue) {
   return accumulator + currentValue ;
 }
 
-const mapper = function()
+const mapper = function(accumulator, currentValue){
+  var wordCount = currentValue.split(" ").length ;
+  if (wordCount in accumulator){
+    accumulator[wordCount] += 1
+  }
+  else {
+    accumulator[wordCount] = 1;
+  }
+  return accumulator ; 
+}
 const wordCountMap = monologueLines.reduce(mapper, {});
